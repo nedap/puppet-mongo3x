@@ -33,14 +33,9 @@
 # Copyright 2013 PuppetLabs
 #
 class mongodb (
-  # Deprecated parameters
-  $enable_10gen     = undef,
-
   $init             = $mongodb::params::service_provider,
   $packagename      = undef,
-  $version          = undef,
   $servicename      = $mongodb::params::service_name,
-  $service_enable   = true, #deprecated
   $logpath          = $mongodb::params::logpath,
   $logappend        = true,
   $system_logrotate = undef,
@@ -56,7 +51,6 @@ class mongodb (
   $verbose          = undef,
   $objcheck         = undef,
   $quota            = undef,
-  $oplog            = undef, #deprecated it's on if replica set
   $oplog_size       = undef,
   $nohints          = undef,
   $nohttpinterface  = undef,
@@ -67,22 +61,18 @@ class mongodb (
   $mms_token        = undef,
   $mms_name         = undef,
   $mms_interval     = undef,
-  $slave            = undef,
-  $only             = undef,
-  $master           = undef,
-  $source           = undef,
   $configsvr        = undef,
   $shardsvr         = undef,
   $replset          = undef,
   $rest             = undef,
   $quiet            = undef,
-  $slowms           =  undef,
+  $slowms           = undef,
   $keyfile          = undef,
   $key              = undef,
   $ipv6             = undef,
   $bind_ip          = undef,
   $pidfilepath      = undef,
-  $pidfilemode      = undef
+  $pidfilemode      = undef,
 ) inherits mongodb::params {
 
   if $enable_10gen {
